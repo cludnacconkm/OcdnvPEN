@@ -1,15 +1,12 @@
 from typing import List
 import json
 from os import getenv
-from utils.console import print_substep
-
 
 def get_subreddit_undone(submissions: List, subreddit):
     """
     recursively checks if the top submission in the list was already done.
     """
     with open("./video_creation/data/videos.json", "r") as done_vids_raw:
-        done_videos = json.load(done_vids_raw)
     for submission in submissions:
         if already_done(done_videos, submission):
             continue
